@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vinay | Backend and full stack developer</title>
+<meta name="description" content="Portfolio of Vinay, an Information Science student in Bengaluru. Clear every project level to unlock a secret level.">
+<meta property="og:title" content="Vinay | Backend and full stack developer">
+<meta property="og:description" content="A portfolio built as a game. Start it and clear the levels.">
+<meta name="theme-color" content="#9BBC0F">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='8' height='8' fill='%230F380F'/><rect x='2' y='2' width='4' height='4' fill='%239BBC0F'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+@property --bg{syntax:"<color>";inherits:true;initial-value:#9BBC0F}
+@property --fg{syntax:"<color>";inherits:true;initial-value:#0F380F}
+:root{transition:--bg .9s var(--ease),--fg .9s var(--ease);--bg:#9BBC0F;--card:#FFFDF2;--fg:#0F380F;--sh:color-mix(in srgb,var(--fg) 45%,var(--bg));--mut:color-mix(in srgb,var(--fg) 82%,var(--bg));--acc:color-mix(in srgb,var(--fg) 14%,transparent);--sp-50:4px;--sp-75:8px;--sp-100:12px;--sp-200:16px;--sp-300:24px;--sp-400:32px;--sp-600:48px;--sp-700:64px;--sp-900:96px;--ease:cubic-bezier(0.22,1,0.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:128px}
+body{background:var(--bg);color:var(--fg);font-family:'VT323',monospace;font-size:20px;line-height:28px;font-style:normal}
+a{color:inherit}
+.px{font-family:'Press Start 2P',monospace;font-weight:400;text-transform:uppercase;text-wrap:balance}
+.h1{animation:drop 1.2s steps(8) both;font-size:60px;line-height:60px;text-shadow:6px 6px 0 var(--sh)}
+.h2{font-size:24px;line-height:32px}
+.h3{font-size:14px;line-height:20px}
+.cap{font-size:12px;line-height:16px}
+.mut{color:var(--mut)}
+p{text-wrap:pretty}
+.skip{position:absolute;left:var(--sp-200);top:-80px;background:var(--fg);color:var(--bg);padding:var(--sp-75) var(--sp-100);z-index:100}
+.skip:focus{top:var(--sp-200)}
+:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--bg);border-bottom:3px solid var(--fg);display:flex;align-items:center;gap:var(--sp-300);padding:var(--sp-100) var(--sp-300)}
+header nav{display:flex;gap:var(--sp-300);margin-left:var(--sp-300);flex:1}
+header nav a{text-decoration:none;padding:var(--sp-50) var(--sp-75);transition:background-color .3s var(--ease)}
+header nav a:hover,header nav a[aria-current="true"]{background:var(--acc)}
+.ibtn{width:40px;height:40px;border:3px solid var(--fg);background:var(--bg);color:var(--fg);cursor:pointer;display:grid;place-items:center;font-family:'Press Start 2P',monospace;font-size:12px;transition:transform .5s var(--ease)}
+.ibtn:active{transform:scale(.98)}
+#menuBtn{display:none}
+main{max-width:1040px;margin:0 auto;padding:0 var(--sp-300)}
+section{padding:var(--sp-900) 0}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--sp-900) + var(--sp-400))}
+.hero .sub{margin-top:var(--sp-300);font-size:24px;line-height:32px}
+.hero .blurb{max-width:680px;margin-top:var(--sp-200);color:var(--mut)}
+#sprite{fill:var(--fg);display:block;margin-bottom:var(--sp-300);animation:bob 1s steps(2) infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes drop{from{transform:translateY(-160px);opacity:0}}
+.btn{display:inline-flex;align-items:center;gap:var(--sp-100);padding:var(--sp-75) var(--sp-100);border:3px solid var(--fg);background:var(--card);color:#0F380F;cursor:pointer;box-shadow:6px 6px 0 var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease),background-color .3s var(--ease);font-family:'Press Start 2P',monospace;font-size:14px;line-height:20px;text-decoration:none;text-transform:uppercase}
+.btn:hover{background:var(--fg);color:var(--card);transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sh)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--sh)}
+.btn[disabled]{background:#FFFDF2;color:#0F380F;cursor:default;box-shadow:none;transform:none}
+.hero .btn{margin-top:var(--sp-400);padding:var(--sp-100) var(--sp-300)}
+.blink{animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.sec-title{margin-bottom:var(--sp-400)}
+.grid{display:grid;gap:var(--sp-300);grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.card{position:relative;border:3px solid var(--fg);background:var(--card);color:#0F380F;padding:var(--sp-300);display:flex;flex-direction:column;gap:var(--sp-100);box-shadow:6px 6px 0 var(--sh)}
+.card .lab{background:var(--fg);color:var(--bg);align-self:flex-start;padding:var(--sp-50) var(--sp-75)}
+.card .tags{color:var(--mut)}
+.row{display:flex;flex-wrap:wrap;gap:var(--sp-200);align-items:center;margin-top:auto;padding-top:var(--sp-100)}
+.row .btn{box-shadow:4px 4px 0 var(--sh);font-size:12px;line-height:16px}
+.lnk2{text-decoration:underline}
+.card.cleared{background:#0F380F;color:#FFFDF2}.card.cleared .tags{color:#FFFDF2}.card.cleared .lab{background:#FFFDF2;color:#0F380F}.card.cleared .btn{background:#FFFDF2;color:#0F380F}
+.card.cleared::after{content:'CLEARED';position:absolute;top:var(--sp-200);right:var(--sp-200);font-family:'Press Start 2P',monospace;font-size:12px;border:3px solid #FFFDF2;padding:var(--sp-50) var(--sp-75);transform:rotate(8deg);animation:stamp .5s var(--ease)}
+@keyframes stamp{from{opacity:0;transform:rotate(8deg) scale(2)}}
+.about{max-width:680px;display:flex;flex-direction:column;gap:var(--sp-200)}
+.stats{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-75) var(--sp-300);margin-top:var(--sp-300);max-width:680px}
+.hint{margin-top:var(--sp-300);border:3px dashed var(--fg);padding:var(--sp-200)}
+#metro{--tw:96px;--rt:calc(6px + var(--tw)*0.2059);position:fixed;left:0;right:0;top:67px;z-index:45;height:calc(var(--rt) + 22px);background:var(--bg);border-bottom:3px solid var(--fg)}
+#rail{position:relative;height:100%;margin:0 var(--sp-200)}
+#rail::before{content:'';position:absolute;left:0;right:0;top:var(--rt);border-top:3px dashed var(--fg)}
+#metro a{position:absolute;top:calc(var(--rt) + 2px);z-index:2;width:16px;height:16px;border:3px solid var(--fg);background:var(--card);transform:translateY(-50%)}
+#metro a[aria-current="true"]{background:var(--fg)}
+#metro a span{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#FFFDF2;color:#0F380F;border:3px solid #0F380F;padding:2px var(--sp-75);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+#metro a:hover span,#metro a:focus-visible span{opacity:1}
+#train{position:absolute;left:0;top:6px;z-index:1;width:var(--tw);pointer-events:none}
+#train svg{display:block;width:100%;animation:chug .6s steps(2) infinite}
+@keyframes chug{50%{transform:translateY(-2px)}}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-200);margin-bottom:var(--sp-300)}
+.node{font-size:12px;line-height:16px}.node[aria-pressed="true"]{background:var(--fg);color:var(--card)}
+.arr{animation:blink 1.2s steps(2) infinite}
+#secret{display:none}#secret.on{display:block}
+#hof[hidden]{display:none}#hof{margin-top:var(--sp-300)}#hof input{font:inherit;border:3px solid var(--fg);background:var(--card);color:#0F380F;padding:var(--sp-75) var(--sp-100);width:180px}#board{padding-left:var(--sp-300)}
+.tagline{max-width:900px;line-height:48px}
+.tagline .w{opacity:.3;transition:opacity .5s var(--ease)}.tagline .w.on{opacity:1}
+footer{border-top:3px solid var(--fg);padding:var(--sp-400) var(--sp-300);text-align:center}
+.rv{opacity:0;transform:translateY(32px);transition:transform .7s var(--ease),opacity .7s var(--ease)}.rv.in{opacity:1;transform:none}
+#hud{position:fixed;left:var(--sp-200);bottom:var(--sp-200);z-index:60;background:var(--fg);color:var(--bg);padding:var(--sp-100) var(--sp-200);display:none;gap:var(--sp-300);flex-wrap:wrap}
+#hud.on{display:flex}
+#toast{position:fixed;left:50%;top:128px;transform:translateX(-50%);z-index:70;background:var(--acc);border:3px solid var(--fg);padding:var(--sp-100) var(--sp-200);display:none;text-align:center;max-width:calc(100vw - 32px)}
+#toast.on{display:block}
+@media (max-width:767px){#metro{--tw:72px}
+.h1{font-size:36px;line-height:40px;text-shadow:4px 4px 0 var(--sh)}.h2{font-size:18px;line-height:28px}
+#menuBtn{display:grid}
+header nav{display:none;position:fixed;inset:64px 0 0 0;background:var(--bg);flex-direction:column;justify-content:center;gap:var(--sp-300);margin:0;padding:var(--sp-400)}
+header nav.open{display:flex}header nav a{font-size:24px}
+header{justify-content:space-between}
+section{padding:var(--sp-700) 0}.tagline{line-height:32px}
+}
+@media (prefers-reduced-motion:reduce){#sprite,.blink,.h1,.arr,#train svg{animation:none}.rv{transform:none!important}html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip px cap" href="#main">Skip to content</a>
+<header>
+  <a class="px cap" href="#top" style="text-decoration:none">VINAY.DEV</a>
+  <nav id="nav" aria-label="Primary">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#quests">Achievements</a><a href="#aws">AWS</a><a href="#contact" id="navContact">Contact</a>
+  </nav>
+  <button class="ibtn" id="snd" aria-pressed="false" aria-label="Sound effects off" title="Sound effects">♪</button>
+  <button class="ibtn" id="menuBtn" aria-expanded="false" aria-label="Open menu">≡</button>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" data-bg="#9BBC0F" data-fg="#0F380F">
+    <svg id="sprite" width="120" height="96" viewBox="0 0 20 16" shape-rendering="crispEdges" role="img" aria-label="Pixel art of a student with a graduation cap, a laptop showing code, and a coffee cup"><rect x="8" y="0" width="4" height="1" fill="#0F380F"/><rect x="5" y="1" width="10" height="1" fill="#0F380F"/><rect x="2" y="2" width="16" height="1" fill="#0F380F"/><rect x="2" y="3" width="1" height="1" fill="#F2B705"/><rect x="6" y="3" width="8" height="1" fill="#0F380F"/><rect x="17" y="3" width="1" height="1" fill="#306230"/><rect x="2" y="4" width="1" height="1" fill="#F2B705"/><rect x="5" y="4" width="1" height="1" fill="#0F380F"/><rect x="6" y="4" width="8" height="1" fill="#FFFDF2"/><rect x="14" y="4" width="1" height="1" fill="#0F380F"/><rect x="18" y="4" width="1" height="1" fill="#306230"/><rect x="5" y="5" width="1" height="1" fill="#0F380F"/><rect x="6" y="5" width="1" height="1" fill="#FFFDF2"/><rect x="7" y="5" width="1" height="1" fill="#0F380F"/><rect x="8" y="5" width="4" height="1" fill="#FFFDF2"/><rect x="12" y="5" width="1" height="1" fill="#0F380F"/><rect x="13" y="5" width="1" height="1" fill="#FFFDF2"/><rect x="14" y="5" width="1" height="1" fill="#0F380F"/><rect x="16" y="5" width="1" height="1" fill="#0F380F"/><rect x="17" y="5" width="1" height="1" fill="#7B4A1E"/><rect x="18" y="5" width="1" height="1" fill="#0F380F"/><rect x="5" y="6" width="1" height="1" fill="#0F380F"/><rect x="6" y="6" width="1" height="1" fill="#FF8FA3"/><rect x="7" y="6" width="6" height="1" fill="#FFFDF2"/><rect x="13" y="6" width="1" height="1" fill="#FF8FA3"/><rect x="14" y="6" width="1" height="1" fill="#0F380F"/><rect x="16" y="6" width="1" height="1" fill="#0F380F"/><rect x="17" y="6" width="1" height="1" fill="#FFFDF2"/><rect x="18" y="6" width="2" height="1" fill="#0F380F"/><rect x="5" y="7" width="1" height="1" fill="#0F380F"/><rect x="6" y="7" width="2" height="1" fill="#FFFDF2"/><rect x="8" y="7" width="1" height="1" fill="#0F380F"/><rect x="9" y="7" width="2" height="1" fill="#FFFDF2"/><rect x="11" y="7" width="1" height="1" fill="#0F380F"/><rect x="12" y="7" width="2" height="1" fill="#FFFDF2"/><rect x="14" y="7" width="1" height="1" fill="#0F380F"/><rect x="16" y="7" width="1" height="1" fill="#0F380F"/><rect x="17" y="7" width="1" height="1" fill="#FFFDF2"/><rect x="18" y="7" width="2" height="1" fill="#0F380F"/><rect x="5" y="8" width="1" height="1" fill="#0F380F"/><rect x="6" y="8" width="3" height="1" fill="#FFFDF2"/><rect x="9" y="8" width="2" height="1" fill="#0F380F"/><rect x="11" y="8" width="3" height="1" fill="#FFFDF2"/><rect x="14" y="8" width="1" height="1" fill="#0F380F"/><rect x="16" y="8" width="3" height="1" fill="#0F380F"/><rect x="5" y="9" width="10" height="1" fill="#0F380F"/><rect x="3" y="10" width="14" height="1" fill="#0F380F"/><rect x="3" y="11" width="1" height="1" fill="#0F380F"/><rect x="4" y="11" width="3" height="1" fill="#FFFDF2"/><rect x="7" y="11" width="1" height="1" fill="#0F380F"/><rect x="8" y="11" width="3" height="1" fill="#FFFDF2"/><rect x="11" y="11" width="1" height="1" fill="#F2B705"/><rect x="12" y="11" width="1" height="1" fill="#FFFDF2"/><rect x="13" y="11" width="1" height="1" fill="#0F380F"/><rect x="14" y="11" width="2" height="1" fill="#FFFDF2"/><rect x="16" y="11" width="1" height="1" fill="#0F380F"/><rect x="3" y="12" width="1" height="1" fill="#0F380F"/><rect x="4" y="12" width="2" height="1" fill="#FFFDF2"/><rect x="6" y="12" width="1" height="1" fill="#0F380F"/><rect x="7" y="12" width="3" height="1" fill="#FFFDF2"/><rect x="10" y="12" width="1" height="1" fill="#F2B705"/><rect x="11" y="12" width="3" height="1" fill="#FFFDF2"/><rect x="14" y="12" width="1" height="1" fill="#0F380F"/><rect x="15" y="12" width="1" height="1" fill="#FFFDF2"/><rect x="16" y="12" width="1" height="1" fill="#0F380F"/><rect x="3" y="13" width="1" height="1" fill="#0F380F"/><rect x="4" y="13" width="3" height="1" fill="#FFFDF2"/><rect x="7" y="13" width="1" height="1" fill="#0F380F"/><rect x="8" y="13" width="1" height="1" fill="#FFFDF2"/><rect x="9" y="13" width="1" height="1" fill="#F2B705"/><rect x="10" y="13" width="3" height="1" fill="#FFFDF2"/><rect x="13" y="13" width="1" height="1" fill="#0F380F"/><rect x="14" y="13" width="2" height="1" fill="#FFFDF2"/><rect x="16" y="13" width="1" height="1" fill="#0F380F"/><rect x="3" y="14" width="14" height="1" fill="#0F380F"/><rect x="1" y="15" width="18" height="1" fill="#0F380F"/></svg>
+    <p class="px cap" style="margin-bottom:var(--sp-300)">Builder · Class of 2027</p>
+    <h1 class="px h1">Vinay</h1>
+    <p class="sub">Backend and full stack developer</p>
+    <p class="blurb">Information Science student in Bengaluru, class of 2027. I build with Java, Spring Boot, Node and React, and ship on AWS.</p>
+    <button class="btn" id="start"><span class="blink">▶</span> Start game</button>
+  </section>
+
+  <section id="about" class="rv" data-bg="#FFC2D1" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">About me</h2>
+    <div class="about">
+      <p>I am an Information Science and Engineering student at Global Academy of Technology in Bengaluru, graduating in 2027.</p>
+      <p>My flagship project is MedVault, an electronic health records platform I built during my Infosys Springboard internship. I also completed a Bluestock Fintech internship, and I enter hackathons often, usually turning the entry into something I keep improving.</p>
+      <p>Lately I have been shipping small tools on AWS, from a service counter communication bridge to a litter reporting app.</p>
+    </div>
+    <dl class="stats px cap">
+      <dt>Class</dt><dd>ISE, 2027</dd><dt>Home base</dt><dd>Bengaluru</dd><dt>Main weapon</dt><dd>Java</dd><dt>Side quests</dt><dd>Hackathons, open source</dd>
+    </dl>
+  </section>
+
+  <section id="skills" class="rv" data-bg="#BDE0FE" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">Skills and power ups</h2>
+    <div class="grid">
+      <div class="card"><h3 class="px h3">Backend</h3><p>Java and Spring Boot, Node.js with Express, REST API design, JWT authentication and role based access control.</p></div>
+      <div class="card"><h3 class="px h3">Frontend</h3><p>React dashboards, KPI cards and data visualizations, plus real time updates with Socket.io.</p></div>
+      <div class="card"><h3 class="px h3">Data</h3><p>MySQL and PostgreSQL schema design, transactional writes with row level locking, MongoDB for the MERN stack.</p></div>
+      <div class="card"><h3 class="px h3">AWS</h3><p>Lambda, API Gateway, DynamoDB, S3, Polly and Amplify Hosting, deployed with SAM.</p></div>
+      <div class="card"><h3 class="px h3">Applied ML</h3><p>Python models for attrition prediction, reinforcement learning on a grid world, and GPT 2 fine tuning.</p></div>
+      <div class="card"><h3 class="px h3">Problem solving</h3><p>Data structures and algorithms, with Java as my main language for coding rounds.</p></div>
+    </div>
+  </section>
+
+  <section id="projects" class="rv" data-bg="#FFE29A" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">Projects are levels</h2>
+    <p class="mut" style="max-width:680px;margin-bottom:var(--sp-400)">Every project is readable as is. Clear a level to earn XP.</p>
+    <div class="grid" id="levels">
+      <article class="card lvl"><p class="px cap lab">Level 1</p><h3 class="px h3">MedVault</h3><p>Electronic health records platform from my Infosys Springboard internship, with 40+ REST APIs, JWT authentication and role based access control.</p><p class="tags">Spring Boot · JWT · RBAC</p><div class="row"><a class="lnk2" href="https://github.com/Vinayreddy765/MedVault">View code ▸</a><button class="btn clr">▶ Clear level</button></div></article>
+      <article class="card lvl"><p class="px cap lab">Level 2</p><h3 class="px h3">TransitOps</h3><p>Transport operations platform for vehicles, drivers, trips, maintenance and fuel. Trip dispatch is transactional, using MySQL row level locking.</p><p class="tags">Node.js · MySQL · React</p><div class="row"><a class="lnk2" href="https://github.com/Vinayreddy765/TransitOps">View code ▸</a><button class="btn clr">▶ Clear level</button></div></article>
+      <article class="card lvl"><p class="px cap lab">Level 3</p><h3 class="px h3">Service counter bridge</h3><p>Live captions on a tablet so a deaf visitor can read what staff say, and typed replies are read aloud. Built for banks, hospitals and government offices.</p><p class="tags">Lambda · DynamoDB · Polly · S3</p><div class="row"><a class="lnk2" href="https://github.com/Vinayreddy765/bridge-service-counter">View code ▸</a><button class="btn clr">▶ Clear level</button></div></article>
+      <article class="card lvl"><p class="px cap lab">Level 4</p><h3 class="px h3">CleanStreet</h3><p>Roadside litter reporting and cleanup tracking, with a transparent hotspot priority score so people can see why a spot ranks where it does.</p><p class="tags">React · TypeScript · SAM</p><div class="row"><a class="lnk2" href="https://github.com/Vinayreddy765">All repositories ▸</a><button class="btn clr">▶ Clear level</button></div></article>
+      <article class="card lvl"><p class="px cap lab">Level 5</p><h3 class="px h3">SportsArena</h3><p>College sports tournament manager with real time scores over Socket.io and role based access, planned with a full PRD and TRD.</p><p class="tags">MongoDB · Express · Socket.io</p><div class="row"><a class="lnk2" href="https://github.com/Vinayreddy765">All repositories ▸</a><button class="btn clr">▶ Clear level</button></div></article>
+      <article class="card lvl"><p class="px cap lab">Level 6</p><h3 class="px h3">Attrition model</h3><p>Risk scoring on the IBM HR Analytics dataset, blending K Means clustering, Random Forest, Gradient Boosting and Logistic Regression.</p><p class="tags">Python · scikit learn</p><div class="row"><button class="btn clr">▶ Clear level</button></div></article>
+    </div>
+    <p class="hint px cap" id="hint">Hint: clear all 6 levels to unlock a secret level. Progress 0 of 6.</p>
+  </section>
+
+  <section id="secret" class="rv" data-bg="#CDB4FF" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">Secret level</h2>
+    <div class="grid">
+      <div class="card"><h3 class="px h3">Why access control</h3><p>JWT and role based access control show up in MedVault, SportsArena and a lot of my other work. I like systems where every request has to earn its answer.</p></div>
+      <div class="card"><h3 class="px h3">Learning now</h3><p>Fine tuning GPT 2 to parse Indian addresses into JSON. On my test set it returned valid JSON every time and got 98.3% of fields right. The PIN code was the weakest at 91.3%.</p></div>
+      <div class="card"><h3 class="px h3">Feedback that stuck</h3><p>A judge described my service counter bridge as a small, focused accessibility tool that fully works on AWS. I try to build every project that way.</p></div>
+    </div>
+    <div class="card" id="hof" hidden>
+      <h3 class="px h3">Speedrun hall of fame</h3>
+      <p id="mytime">Fastest times to clear all 6 levels.</p>
+      <ol id="board"><li>Loading...</li></ol>
+      <form id="hofForm" class="row"><input id="hofName" maxlength="12" required pattern="[A-Za-z0-9 ]{2,12}" aria-label="Your name, 2 to 12 letters or numbers" placeholder="Your name"><button class="btn" type="submit">Save my time</button></form>
+      <p id="hofMsg" role="status"></p>
+      <p class="cap px mut">Saved with API Gateway, Lambda and DynamoDB.</p>
+    </div>
+  </section>
+
+  <section id="quests" class="rv" data-bg="#B8F2D8" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">Achievements and side quests</h2>
+    <div class="grid">
+      <div class="card"><h3 class="px h3">Open source</h3><p>Reproduced bugs and submitted fixes to Joplin, and built API driven activity filtering across backend and frontend for GitLab.</p></div>
+      <div class="card"><h3 class="px h3">Two internships</h3><p>Infosys Springboard, where I built MedVault, and Bluestock Fintech.</p></div>
+      <div class="card"><h3 class="px h3">Hackathons</h3><p>Odoo 2026 with TransitOps, GitLab Transcend with MergeGuard and ArchaeologistAI, and several AWS builder challenges.</p></div>
+      <div class="card"><h3 class="px h3">Certified in Java</h3><p>NPTEL certification in Programming in Java.</p></div>
+    </div>
+  </section>
+
+  <section id="aws" class="rv" data-bg="#E8D5B7" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">How this site runs on AWS</h2>
+    <p class="mut" style="max-width:680px;margin-bottom:var(--sp-300)">Tap a box to see what it does.</p>
+    <div class="flow" role="group" aria-label="Deploy path"><button class="btn node" data-n="git" aria-pressed="false">GitHub</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="amp" aria-pressed="false">Amplify Hosting</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="cf" aria-pressed="false">CloudFront</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="vis" aria-pressed="false">Visitor</button></div>
+    <div class="flow" role="group" aria-label="Hall of fame backend"><button class="btn node" data-n="vis" aria-pressed="false">Visitor</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="api" aria-pressed="false">API Gateway</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="fn" aria-pressed="false">Lambda</button><span class="arr px cap" aria-hidden="true">▶</span><button class="btn node" data-n="db" aria-pressed="false">DynamoDB</button></div>
+    <div class="card" aria-live="polite"><h3 class="px h3" id="nTitle">Pick a box</h3><p id="nText">Each box is a real piece of the setup behind this page.</p><p class="px cap" id="nTag"></p></div>
+  </section>
+
+  <section class="rv" id="tagline" data-bg="#0F380F" data-fg="#9BBC0F"><p class="px h2 tagline" id="tag">Clean data, strict access rules and a deploy button that works. That is the kind of backend I like to hand over.</p></section>
+
+  <section id="contact" class="rv" data-bg="#FFB38A" data-fg="#0F380F">
+    <h2 class="px h2 sec-title">Continue?</h2>
+    <p class="mut" style="max-width:680px;margin-bottom:var(--sp-300)">Open to internships from January to June 2027, on site or relocating.</p>
+    <p style="display:flex;flex-direction:column;gap:var(--sp-100)">
+      <a href="https://github.com/Vinayreddy765">GitHub: github.com/Vinayreddy765</a>
+      <a href="mailto:vinayreddy765@gmail.com">Email: vinayreddy765@gmail.com</a>
+      <a href="https://www.linkedin.com/in/vinay-reddy-562a5728b/">LinkedIn: linkedin.com/in/vinay-reddy-562a5728b</a>
+    </p>
+  </section>
+</main>
+<footer class="px cap">Game over? Never. Hosted on AWS Amplify · 2026</footer>
+
+<nav id="metro" aria-label="Page sections"><div id="rail"><div id="train"><svg viewBox="0 0 34 8" shape-rendering="crispEdges" aria-hidden="true">
+<rect width="10" height="5" fill="#F2B705"/><rect x="2" y="1" width="2" height="2" fill="#FFFDF2"/><rect x="6" y="1" width="2" height="2" fill="#FFFDF2"/>
+<rect x="11" width="10" height="5" fill="#2E9E5B"/><rect x="13" y="1" width="2" height="2" fill="#FFFDF2"/><rect x="17" y="1" width="2" height="2" fill="#FFFDF2"/>
+<rect x="22" width="10" height="5" fill="#7B3FA0"/><rect x="32" y="1" width="2" height="4" fill="#7B3FA0"/><rect x="24" y="1" width="2" height="2" fill="#FFFDF2"/><rect x="29" y="1" width="3" height="2" fill="#FFFDF2"/>
+<rect x="10" y="3" width="1" height="1" fill="#0F380F"/><rect x="21" y="3" width="1" height="1" fill="#0F380F"/>
+<rect x="1" y="5" width="2" height="2" fill="#0F380F"/><rect x="7" y="5" width="2" height="2" fill="#0F380F"/><rect x="12" y="5" width="2" height="2" fill="#0F380F"/><rect x="18" y="5" width="2" height="2" fill="#0F380F"/><rect x="23" y="5" width="2" height="2" fill="#0F380F"/><rect x="29" y="5" width="2" height="2" fill="#0F380F"/>
+</svg></div></div></nav>
+<div id="hud" class="px cap" aria-live="polite"><span>XP <b id="xp">0</b></span><span>Levels <b id="cl">0</b>/6</span></div>
+<div id="toast" class="px cap" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// reveals
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{threshold:.1});
+$$('.rv').forEach(el=>rio.observe(el));
+// tagline word reveal
+const tag=$('#tag'),words=tag.textContent.trim().split(/\s+/);
+tag.setAttribute('aria-label',words.join(' '));
+tag.innerHTML=words.map(w=>'<span class="w" aria-hidden="true">'+w+'</span>').join(' ');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)tag.querySelectorAll('.w').forEach(w=>w.classList.add('on'));
+else{const wio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');wio.unobserve(e.target)}}),{rootMargin:'0px 0px -35% 0px'});tag.querySelectorAll('.w').forEach(w=>wio.observe(w))}
+// active nav
+const links=$$('#nav a');
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.removeAttribute('aria-current'));const l=links.find(a=>a.getAttribute('href')==='#'+e.target.id);if(l)l.setAttribute('aria-current','true')}}),{rootMargin:'-40% 0px -55% 0px'});
+$$('main section[id]').forEach(s=>nio.observe(s));
+// mobile menu
+const mb=$('#menuBtn'),nv=$('#nav');
+function menu(o){nv.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu');mb.textContent=o?'×':'≡'}
+mb.onclick=()=>menu(!nv.classList.contains('open'));nv.onclick=e=>{if(e.target.tagName==='A')menu(false)};
+addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+// sound
+let snd=false,ac;
+$('#snd').onclick=function(){snd=!snd;this.setAttribute('aria-pressed',snd);this.setAttribute('aria-label','Sound effects '+(snd?'on':'off'));this.textContent=snd?'♫':'♪';beep(660,.1)};
+function beep(f,d=.1){if(!snd)return;try{ac=ac||new AudioContext();const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;g.gain.value=.05;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}}
+// game state
+let xp=0,done=0,started=false;
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3500)}
+function start(){if(started)return;started=true;t0=performance.now();$('#hud').classList.add('on');beep(523,.1);setTimeout(()=>beep(784,.15),120);toast('Game loaded. Clear every project level.')}
+$('#start').onclick=()=>{start();$('#about').scrollIntoView({behavior:'smooth'})};
+$$('.clr').forEach(b=>b.onclick=()=>{start();const c=b.closest('.card');if(c.classList.contains('cleared'))return;
+c.classList.add('cleared');b.disabled=true;b.textContent='★ Cleared';xp+=100;done++;
+$('#xp').textContent=xp;$('#cl').textContent=done;$('#hint').textContent='Hint: clear all 6 levels to unlock a secret level. Progress '+done+' of 6.';
+beep(880,.12);if(done===6)unlock()});
+function unlock(){const s=$('#secret');s.classList.add('on','in');
+const a=document.createElement('a');a.href='#secret';a.textContent='Secret';$('#navContact').before(a);links.push(a);nio.observe(s);
+$('#hint').textContent='All 6 levels cleared. Secret level unlocked.';
+mySecs=Math.max(5,Math.round((performance.now()-t0)/1000));$('#mytime').textContent='Your time: '+fmt(mySecs)+'. Fastest times to clear all 6 levels.';
+if(API){$('#hof').hidden=false;loadBoard()}xp+=500;$('#xp').textContent=xp;
+toast('All clear. Secret level unlocked, plus 500 bonus XP.');[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.15),i*140));
+setTimeout(()=>s.scrollIntoView({behavior:'smooth'}),900)}
+// speedrun hall of fame (AWS API). Paste your ApiUrl output below, no trailing slash.
+const API='';
+let t0=0,mySecs=0;
+const fmt=s=>Math.floor(s/60)+'m '+String(s%60).padStart(2,'0')+'s';
+async function loadBoard(){const ol=$('#board');try{const r=await fetch(API+'/scores');if(!r.ok)throw 0;const d=await r.json();ol.innerHTML='';
+if(!d.length){const li=document.createElement('li');li.textContent='No times yet. Be the first.';ol.appendChild(li)}
+d.forEach(x=>{const li=document.createElement('li');li.textContent=x.name+' · '+fmt(x.secs);ol.appendChild(li)})}
+catch(e){ol.innerHTML='';const li=document.createElement('li');li.textContent='The hall of fame is offline. Try again later.';ol.appendChild(li)}}
+$('#hofForm').onsubmit=async e=>{e.preventDefault();const m=$('#hofMsg'),b=e.target.querySelector('button');b.disabled=true;
+try{const r=await fetch(API+'/scores',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:$('#hofName').value,secs:mySecs})});
+if(!r.ok)throw 0;m.textContent='Saved. Your time is on the board.';beep(988,.15);loadBoard()}
+catch(err){m.textContent='Could not save. Check the name uses letters and numbers only, then try again.';b.disabled=false}};
+// metro tracker (horizontal)
+const stops=[['top','Start'],['about','About'],['skills','Skills'],['projects','Projects'],['quests','Achievements'],['aws','AWS'],['contact','Contact']];
+const rail=$('#rail'),tr=$('#train');let tw=96,tick=false;
+stops.forEach(([id,l])=>{const a=document.createElement('a');a.href='#'+id;a.setAttribute('aria-label',l);const sp=document.createElement('span');sp.className='px cap';sp.textContent=l;a.appendChild(sp);rail.insertBefore(a,tr)});
+function lay(){const W=rail.clientWidth;tw=tr.getBoundingClientRect().width;
+rail.querySelectorAll('a').forEach((a,i)=>a.style.left=(tw/2+i/(stops.length-1)*(W-tw)-8)+'px');place()}
+function place(){tick=false;const els=stops.map(x=>document.getElementById(x[0])),y=scrollY+innerHeight*.4*Math.min(1,scrollY/innerHeight);let i=0;
+for(let k=0;k<els.length;k++)if(y>=els[k].offsetTop)i=k;
+const a=els[i].offsetTop,b=i<els.length-1?els[i+1].offsetTop:a+els[i].offsetHeight;
+const f=Math.min(1,Math.max(0,(y-a)/(b-a)));let pos=Math.min(1,(i+f)/(els.length-1));
+const mx=document.documentElement.scrollHeight-innerHeight,r=Math.min(1,Math.max(0,(scrollY-(mx-innerHeight*.4))/(innerHeight*.4)));pos+=(1-pos)*r;
+tr.style.transform='translateX('+(pos*(rail.clientWidth-tw))+'px)';
+rail.querySelectorAll('a').forEach((a,k)=>k===i?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'))}
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(place)}},{passive:true});addEventListener('resize',lay);lay();
+// AWS explorer
+const NODES={git:['GitHub','Source. Every push to the main branch starts a new build and deploy in Amplify.','Source control'],
+amp:['Amplify Hosting','Builds the static site on each push and gives it a live HTTPS URL.','Hosting and deployment'],
+cf:['CloudFront','The content delivery network Amplify uses, so pages load from locations near each visitor.','Global delivery'],
+vis:['Visitor','Loads the page and runs the whole game in the browser. XP and progress live in memory only.','Browser'],
+api:['API Gateway','Public HTTP API with throttling. It exposes GET and POST on /scores for the hall of fame.','Hall of fame backend'],
+fn:['Lambda','A Node.js 20 function that checks names and times, then reads or writes the table.','Hall of fame backend'],
+db:['DynamoDB','An on demand table that keeps the fastest time for each name.','Hall of fame backend']};
+$$('.node').forEach(b=>b.onclick=()=>{const n=NODES[b.dataset.n];$$('.node').forEach(x=>x.setAttribute('aria-pressed',x.dataset.n===b.dataset.n));
+$('#nTitle').textContent=n[0];$('#nText').textContent=n[1];$('#nTag').textContent=n[2];beep(740,.08)});
+// section colour shifts
+const root=document.documentElement;
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){root.style.setProperty('--bg',e.target.dataset.bg);root.style.setProperty('--fg',e.target.dataset.fg);$('meta[name=theme-color]').content=e.target.dataset.bg}}),{rootMargin:'-45% 0px -45% 0px'});
+$$('main section[data-bg]').forEach(s=>cio.observe(s));
+</script>
+</body>
+</html>
