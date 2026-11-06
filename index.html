@@ -259,7 +259,7 @@ if(API){$('#hof').hidden=false;loadBoard()}xp+=500;$('#xp').textContent=xp;
 toast('All clear. Secret level unlocked, plus 500 bonus XP.');[523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.15),i*140));
 setTimeout(()=>s.scrollIntoView({behavior:'smooth'}),900)}
 // speedrun hall of fame (AWS API). Paste your ApiUrl output below, no trailing slash.
-const API='';
+const API=' https://oojgj6fjhe.execute-api.us-east-1.amazonaws.com';
 let t0=0,mySecs=0;
 const fmt=s=>Math.floor(s/60)+'m '+String(s%60).padStart(2,'0')+'s';
 async function loadBoard(){const ol=$('#board');try{const r=await fetch(API+'/scores');if(!r.ok)throw 0;const d=await r.json();ol.innerHTML='';
